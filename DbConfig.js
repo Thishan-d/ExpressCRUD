@@ -1,0 +1,20 @@
+var sql = require('mssql');
+
+const sqlConfig = {
+    user: 'Thishan',
+    password: '123456789',
+    database: 'Assignment7',
+    server: 'localhost',
+    pool: {
+      max: 10,
+      min: 0,
+      idleTimeoutMillis: 30000
+    },
+    options: {
+      trustServerCertificate: true // change to true for local dev / self-signed certs
+    }
+  }
+
+  module.exports ={
+    sqlConfig:sqlConfig
+  }
