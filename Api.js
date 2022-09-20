@@ -44,3 +44,11 @@ router.route('/addStudent').post((request,response)=>{
     })
 
 })
+
+router.route('/updateStudent').put((request,response)=>{
+    let student = {...request.body}
+    dboperations.UpdateStudent(student).then(result => {
+        response.status(201).json(result);
+    })
+
+})
