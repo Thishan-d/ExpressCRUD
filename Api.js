@@ -37,6 +37,13 @@ router.route('/student/:id').get((request,response)=>{
 
 })
 
+router.route('/student/delete/:id').delete((request,response)=>{
+    dboperations.DeleteStudent(request.params.id).then(result => {
+       response.json(result[0]);
+    })
+
+})
+
 router.route('/addStudent').post((request,response)=>{
     let student = {...request.body}
     dboperations.AddStudent(student).then(result => {
