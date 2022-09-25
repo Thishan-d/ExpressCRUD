@@ -26,7 +26,7 @@
             <td>${new Date(student.DOB).toLocaleDateString("en-US", options)}</td>
             <td>${student.Score}</td>
             <td>
-            <button class="btn btn-warning">Edit</button>
+            <button class="btn btn-warning" onclick="updateStudent(${student.Id})">Edit</button>
             <button class="btn btn-danger" onclick="deleteStudent(${student.Id})">Delete</button>
             </td>
             </tr>
@@ -59,9 +59,25 @@
     }
   }
 
+  function updateStudent(studentId)
+  {
+    window.localStorage.setItem('studentId', studentId);
+    window.location.href = "./TeacherUpdateRecord.html";
+  }
+
 
 
 
   window.onload = function() {
+    console.log('fires');
     getStudentData();
+    
+    //only uses when update
+    // var studentId = window.localStorage.getItem('studentId');
+    // if(studentId)
+    // {
+    //   let student = getStudent(studentId);
+ 
+    //   console.log(student)
+    // }
   };

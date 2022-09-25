@@ -3,6 +3,24 @@ function checkFormValidity()
     var validForm = allnumeric1() && allnumeric2() && allLetters() && checkDate();
     if(validForm)
     {
+        return true;
+
+    }
+    else
+    {
+        allnumeric1();
+        allnumeric2();
+        allLetters();
+        checkDate();
+        alert('Please fill the form properly!');
+        return false;
+    }
+}
+
+function addStudent()
+{
+    if(checkFormValidity())
+    {
         try
         {
             newStudent = 
@@ -21,19 +39,8 @@ function checkFormValidity()
             alert("Error occured!")
             return false;
         }
-
-
-
     }
-    else
-    {
-        allnumeric1();
-        allnumeric2();
-        allLetters();
-        checkDate();
-        alert('Please fill the form properly!');
-        return false;
-    }
+    return false;
 }
 
     function allnumeric1()
@@ -48,7 +55,8 @@ function checkFormValidity()
    {
     var inputTxt = document.getElementById('name');
     var message = document.getElementById('nameMsg');
-    var letters = /^[a-zA-Z]+$/;
+    //[^\s]*
+    var letters = /^[A-Za-z\s]*$/;
     return regxCheck(letters,inputTxt,message);
    }
 
@@ -112,4 +120,8 @@ function checkFormValidity()
         })
         });
    }
+
+//    module.exports = {
+//     checkFormValidity : checkFormValidity
+//    }
 
