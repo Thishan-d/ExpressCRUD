@@ -81,3 +81,10 @@
     //   console.log(student)
     // }
   };
+
+  function logout()
+{
+  //window.localStorage.clear();
+  window.localStorage.removeItem('studentId');
+  window.location.href = "./Index.html";
+}

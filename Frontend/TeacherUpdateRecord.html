@@ -7,8 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="./CSS/styles.css">
+    <!-- <script src="./JS/TeacherAddRecord.js"></script> -->
     <script src="./JS/TeacherUpdateRecord.js"></script>
-    <script src="./JS/TeacherAddRecord.js"></script>
     <title>Document</title>
 </head>
 <body class="gen-font">
@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="./Index.html">Logout</a>
+                    <button class="nav-link" onclick="logout()">Logout</button>
                 </li>
             </ul>
         </div>
@@ -32,7 +32,7 @@
             <div class="login-card" style="width: 50%; margin-top:10%;margin-bottom:10%">
                 <h3 class="text-center mt-2 ">Update Student</h3>
                 <div class="mt-5">
-                    <form style="margin: 10px;" id="studentForm" action="./TeacherViewRecord.html" onsubmit="return updateStudent()" method="put">
+                    <form style="margin: 10px;" id="studentForm" action="./TeacherViewRecord.html" onsubmit="return updateStudentOnSubmit()" method="put">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Roll Number</label>
                           <input type="text" class="form-control" id="rollNumber" placeholder="" onkeyup="allnumeric1()">
@@ -54,8 +54,9 @@
                             <small class="text-danger d-none" id="scoreMsg">*Use only numbers</small>
                         </div>
                         <div class="d-flex justify-content-center">                   
-                                <a type="submit" class="btn btn btn-outline-primary" style="width: 24%; margin-right: 5px;" href="./TeacherViewRecord.html">Back</a>
-                                <button type="button" class="btn btn-primary" style="width: 24%;" onclick="testFunction()">Update</button>
+                                <a class="btn btn btn-outline-primary" style="width: 24%; margin-right: 5px;" href="./TeacherViewRecord.html">Back</a>
+                                <!-- <button type="button" class="btn btn-primary" style="width: 24%;" onclick="testFunction()">Update</button> -->
+                                <button type="submit" class="btn btn-primary" style="width: 24%;">Update</button>
                         </div>
                       </form>
                 </div>

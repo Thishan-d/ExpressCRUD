@@ -17,7 +17,7 @@ function checkFormValidity()
     }
 }
 
-function addStudent()
+ function addStudent()
 {
     if(checkFormValidity())
     {
@@ -43,7 +43,7 @@ function addStudent()
     return false;
 }
 
-    function allnumeric1()
+ function allnumeric1()
    {
     var inputTxt = document.getElementById('rollNumber');
     var message = document.getElementById('rollNumberMsg');
@@ -51,7 +51,7 @@ function addStudent()
     return regxCheck(numbers,inputTxt,message);
    } 
 
-   function allLetters()
+ function allLetters()
    {
     var inputTxt = document.getElementById('name');
     var message = document.getElementById('nameMsg');
@@ -60,7 +60,7 @@ function addStudent()
     return regxCheck(letters,inputTxt,message);
    }
 
-   function allnumeric2()
+    function allnumeric2()
    {
     var inputTxt = document.getElementById('score');
     var message = document.getElementById('scoreMsg');
@@ -68,7 +68,7 @@ function addStudent()
     return regxCheck(numbers,inputTxt,message);
    } 
 
-   function checkDate()
+    function checkDate()
    {
     var inputDate = document.getElementById('date');
     var message = document.getElementById('dateMsg');
@@ -86,7 +86,7 @@ function addStudent()
     }
    }
 
-   function regxCheck(regx,inputTxt,message)
+    function regxCheck(regx,inputTxt,message)
    {
     if(inputTxt.value.match(regx))
     {
@@ -102,9 +102,7 @@ function addStudent()
     }
    }
 
-
-
-   async function sendData(newStudent)
+    async function sendData(newStudent)
    {
     const response = await fetch("http://localhost:3000/api/addStudent", {
         method: 'POST',
@@ -121,7 +119,12 @@ function addStudent()
         });
    }
 
-//    module.exports = {
-//     checkFormValidity : checkFormValidity
-//    }
+function logout()
+{
+  //window.localStorage.clear();
+  window.localStorage.removeItem('studentId');
+  window.location.href = "./Index.html";
+}
+
+
 
