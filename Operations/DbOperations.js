@@ -30,6 +30,22 @@ async function GetStudent(studentId)
     }
 }
 
+async function GetStudentByRollNumber(rollNumber,dob)
+{
+    try{
+        let pool = await sql.connect(config.sqlConfig);
+        let students = await pool.request()
+        .input('RollNumber', sql.NVarChar, rollNumber)
+        .input('DOB', sql.NVarChar, dob)
+        .query('SELECT * FROM StudentData where RollNumber = @RollNumber AND DOB = @DOB');
+        return students.recordsets;
+    }
+    catch
+    {
+        console.log('error occured!');
+    }
+}
+
 async function AddStudent(Student) {
 
     try {
@@ -89,4 +105,5 @@ module.exports = {
     AddStudent:AddStudent,
     UpdateStudent: UpdateStudent,
     DeleteStudent:DeleteStudent,
+    GetStudentByRollNumber:GetStudentByRollNumber,
 }

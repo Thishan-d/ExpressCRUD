@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/styles.css">
+    <script src="./JS/StudentSearch.js"></script>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a class="navbar-brand" href="#"><img src="./CSS/NagarroSymbol.png" height="30" class="d-inline-block align-top"
+                alt=""></a>
+        <!-- why i cannot add ms-auto to below div -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item active">
+                    <button class="nav-link" onclick="logout()">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="divCenter">
+
+            <div id="notificationId" class="alert alert-warning alert-dismissible fade show d-none customBox"
+                role="alert" style="width: 50%;">
+                <strong id="resName">No record found!</strong> You should check in on some of those fields in the form!.
+                <button type="button" class="btn-close" aria-label="Close" onclick="closeBtnClicked()"></button>
+            </div>
+
+            <div id="resultsFormId" class="alert alert-warning alert-dismissible fade show d-none customBox" role="alert" style="width: 50%;">
+                <form style="margin: 10px;">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input disabled type="text" class="form-control customInput" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Roll Number</label>
+                        <input disabled type="text" class="form-control customInput">
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <label for="exampleInputPassword1">Date Of Birth</label>
+                        <input disabled type="date" class="form-control customInput">
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <label for="exampleInputPassword1">Score</label>
+                        <input disabled type="text" class="form-control customInput">
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-warning" style="width: 24%;"
+                            onclick="closeBtnClicked()">Close</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="formId" class="login-card customBox">
+                <h3 class="text-center mt-2 ">Search Your Results</h3>
+                <div class="mt-5">
+                    <form style="margin: 10px;" id="studentForm" onsubmit="return getStudent()" method="POST">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Roll Number</label>
+                            <input type="text" class="form-control" id="rollNumber" placeholder=""
+                                onkeyup="allnumeric1()">
+                            <small class="text-danger d-none" id="rollNumberMsg">*Should be a number</small>
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <label for="exampleInputPassword1">Date Of Birth</label>
+                            <input type="date" class="form-control" id="date" onchange="checkDate()">
+                            <small class="text-danger d-none" id="dateMsg">*Select the date field</small>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary" style="width: 24%;">Search</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

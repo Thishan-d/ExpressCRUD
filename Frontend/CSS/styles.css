@@ -27,3 +27,7 @@ margin-top: 15%;
 .dangerText{
     color: red;
 }
+
+.customBox{
+    width: 50%; margin-top:10%;margin-bottom:10%
+}
